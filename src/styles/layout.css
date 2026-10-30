@@ -315,14 +315,21 @@
   background: #fff;
   border-radius: 12px;
   height: 84px;
-  padding: 14px;
-  display: grid;
-  place-items: center;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sponsor-wall__item a {
+  display: contents;
 }
 
 .sponsor-wall__item img {
-  max-height: 100%;
+  max-height: 56px;
   max-width: 100%;
   width: auto;
+  height: auto;
   object-fit: contain;
 }

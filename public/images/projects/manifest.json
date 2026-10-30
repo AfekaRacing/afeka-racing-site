@@ -1,0 +1,68 @@
+[
+  {
+    "name": "body-9-parts",
+    "src": "projects/body-9-parts",
+    "width": 1064,
+    "height": 694
+  },
+  {
+    "name": "body-render",
+    "src": "projects/body-render",
+    "width": 900,
+    "height": 900
+  },
+  {
+    "name": "body-shapes",
+    "src": "projects/body-shapes",
+    "width": 417,
+    "height": 589
+  },
+  {
+    "name": "body-zolder",
+    "src": "projects/body-zolder",
+    "width": 2928,
+    "height": 2928
+  },
+  {
+    "name": "chassis-cad",
+    "src": "projects/chassis-cad",
+    "width": 885,
+    "height": 597
+  },
+  {
+    "name": "electrical-car",
+    "src": "projects/electrical-car",
+    "width": 900,
+    "height": 900
+  },
+  {
+    "name": "electrical-schematic",
+    "src": "projects/electrical-schematic",
+    "width": 3300,
+    "height": 2307
+  },
+  {
+    "name": "rear-suspension-cad",
+    "src": "projects/rear-suspension-cad",
+    "width": 688,
+    "height": 593
+  },
+  {
+    "name": "shipping-truck",
+    "src": "projects/shipping-truck",
+    "width": 1050,
+    "height": 1400
+  },
+  {
+    "name": "software-code",
+    "src": "projects/software-code",
+    "width": 900,
+    "height": 900
+  },
+  {
+    "name": "zolder-segments",
+    "src": "projects/zolder-segments",
+    "width": 3780,
+    "height": 2127
+  }
+]

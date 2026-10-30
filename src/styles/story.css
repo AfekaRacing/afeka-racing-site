@@ -52,109 +52,259 @@
   color: var(--lime);
 }
 
-.project-grid {
-  display: grid;
-  gap: 20px;
+/* ===== שמש הצוות ===== */
+.sun-header {
+  margin-bottom: 24px;
 }
 
-@media (min-width: 900px) {
-  .project-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
+.sun-legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
 }
 
-.project-card {
-  height: 100%;
+.pill {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 999px;
   background: #fff;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--line);
-  overflow: hidden;
-  scroll-margin-top: calc(var(--header-h) + 16px);
+  border: 1.5px solid var(--line);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+  white-space: nowrap;
 }
 
-.project-card__img {
+.pill--on {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--dark);
+  cursor: pointer;
+  transition:
+    transform 0.2s var(--ease),
+    box-shadow 0.2s;
+}
+
+.pill--on:hover {
+  transform: scale(1.05);
+}
+
+.pill--on[aria-pressed='true'] {
+  background: var(--dark);
+  border-color: var(--lime);
+  color: var(--lime);
+  box-shadow: 0 0 0 4px rgba(190, 250, 35, 0.35);
+}
+
+.pill--legend {
+  cursor: default;
+  font-size: 0.8rem;
+  padding: 3px 10px;
+}
+
+.sun {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.sun__rays {
+  display: none;
+}
+
+.sun__center {
+  position: relative;
+  width: min(240px, 70vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--green);
+  background: #fff;
+  box-shadow: 0 0 0 10px rgba(25, 190, 115, 0.15);
+}
+
+.sun__center img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   object-fit: cover;
 }
 
-.project-card__body {
-  padding: clamp(20px, 4vw, 32px);
-}
-
-.project-card h2 {
-  font-size: clamp(1.5rem, 3vw, 1.875rem);
-  margin-top: 12px;
-}
-
-.tag {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: var(--light);
-  color: var(--teal-text);
-}
-
-.facts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 28px;
-  margin: 8px 0 24px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--line);
-}
-
-.facts div {
-  display: flex;
-  flex-direction: column-reverse;
-}
-
-.facts dd {
-  margin: 0;
-  font-size: 1.5rem;
+.sun__team {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 6px 0 14px;
+  text-align: center;
   font-weight: 800;
-  line-height: 1.2;
+  color: var(--on-dark);
+  background: linear-gradient(to top, rgba(20, 26, 23, 0.9), transparent);
 }
 
-.facts dt {
-  font-size: 0.85rem;
-  color: var(--ink-soft);
-}
-
-.story-steps {
+.sun__topics {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+@media (min-width: 960px) {
+  .sun {
+    display: block;
+    aspect-ratio: 16 / 9;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+  .sun__rays {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .sun__ray {
+    stroke: var(--line);
+    stroke-width: 1.5;
+  }
+  .sun__ray--on {
+    stroke: var(--green);
+    stroke-width: 2;
+  }
+  .sun__center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 26%;
+    transform: translate(-50%, -50%);
+  }
+  .sun__topic {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* ===== סיפור התחום ===== */
+.topic-detail {
+  margin-top: 40px;
   display: grid;
-  gap: 16px;
+  gap: 32px;
+  padding: clamp(20px, 4vw, 40px);
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--green);
 }
 
-.story-steps__item {
+@media (min-width: 1000px) {
+  .topic-detail:has(.topic-detail__img) {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: start;
+  }
+}
+
+.topic-detail__title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.topic-detail__img {
+  width: 100%;
+  border-radius: var(--radius);
+  background: var(--light);
+  object-fit: contain;
+  max-height: 520px;
+}
+
+.topic-detail h4 {
+  font-size: 1.05rem;
+  margin: 0 0 2px;
+}
+
+.steps {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.steps__item {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
   position: relative;
-  padding-inline-start: 18px;
-  border-inline-start: 3px solid var(--green);
+  padding-bottom: 14px;
 }
 
-.story-steps__item--problem {
+.steps__item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  right: 17px;
+  top: 36px;
+  bottom: 0;
+  width: 2px;
+  background: var(--line);
+}
+
+.steps__num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--dark);
+  color: var(--lime);
+  font-weight: 800;
+}
+
+.steps__when {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--teal-text);
+}
+
+.steps__item p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.problem-fix {
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .problem-fix {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.problem-fix__item {
+  padding: 16px 18px;
+  border-radius: var(--radius);
+  border-inline-start: 4px solid;
+}
+
+.problem-fix__item p {
+  margin: 0;
+}
+
+.problem-fix__item--problem {
+  background: #fdf0ea;
   border-color: #e0663b;
 }
 
-.story-steps__item--fix {
-  border-color: var(--lime);
-}
-
-.story-steps__item h3 {
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  color: var(--ink-soft);
-  margin-bottom: 2px;
-}
-
-.story-steps__item p {
-  margin: 0;
+.problem-fix__item--fix {
+  background: #f3fde0;
+  border-color: #8cc01a;
 }
 
 /* ===== בלגיה ===== */
@@ -282,4 +432,50 @@
   background:
     radial-gradient(60% 80% at 80% 0%, rgba(25, 190, 115, 0.18), transparent 70%),
     var(--dark);
+}
+
+/* ===== מספרים מרכזיים בתחום ===== */
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  margin: 8px 0 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.facts div {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.facts dd {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--teal-text);
+}
+
+.facts dt {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* במסך רחב השלבים מוצגים כשורה של כרטיסים, כדי לא לגלול הרבה */
+@media (min-width: 800px) {
+  .steps {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+  }
+  .steps__item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 14px;
+    border-radius: var(--radius);
+    background: var(--light);
+  }
+  .steps__item:not(:last-child)::before {
+    display: none;
+  }
 }
