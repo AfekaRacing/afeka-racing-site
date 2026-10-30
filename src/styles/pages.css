@@ -369,3 +369,59 @@
   background: #fff;
   border: 1px solid var(--line);
 }
+
+/* ===== תוצאות בתחרות ===== */
+.results {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .results {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+.results li {
+  height: 100%;
+}
+
+.results__item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: var(--radius);
+  background: var(--dark-2);
+  border: 1px solid var(--line-dark);
+}
+
+.results__value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 64px;
+  font-size: 2.75rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--lime);
+}
+
+.results__prefix {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--on-dark-soft);
+  margin-bottom: 4px;
+}
+
+.results__label {
+  color: var(--on-dark);
+  font-weight: 600;
+  line-height: 1.4;
+}

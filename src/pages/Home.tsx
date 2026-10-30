@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowIcon, InstagramIcon } from '../components/Icons'
 import { Photo } from '../components/Photo'
+import { Results } from '../components/Results'
 import { Reveal } from '../components/Reveal'
 import { StatGrid } from '../components/StatGrid'
 import { explore, hero, intro, next } from '../data/home'
@@ -56,6 +57,7 @@ export default function Home() {
       <section className="section section--dark stats-band">
         <div className="container">
           <StatGrid stats={raceStats} />
+          <Results />
         </div>
       </section>
 

@@ -2,6 +2,7 @@ import { motion, useScroll, useSpring } from 'motion/react'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Photo, PhotoPlaceholder } from '../components/Photo'
+import { Results } from '../components/Results'
 import { Reveal } from '../components/Reveal'
 import { StatGrid } from '../components/StatGrid'
 import { chapters, intro, type Chapter } from '../data/belgium'
@@ -82,6 +83,7 @@ export default function Belgium() {
               <span className="eyebrow">24 שעות במספרים</span>
             </Reveal>
             <StatGrid stats={raceStats} />
+            <Results />
           </div>
         </section>
 
