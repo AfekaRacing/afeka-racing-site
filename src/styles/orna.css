@@ -1,0 +1,272 @@
+/* ===== פרקו את אורנע ===== */
+.tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--light);
+  color: var(--teal-text);
+}
+
+.orna {
+  padding-top: 32px;
+}
+
+.orna__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin-bottom: 16px;
+}
+
+.orna__btn {
+  min-height: 44px;
+  padding: 0.5em 1.2em;
+  color: var(--ink);
+}
+
+.orna__mode {
+  margin-inline-start: auto;
+}
+
+.explode {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1 1 260px;
+  max-width: 460px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--dark);
+  color: var(--on-dark);
+}
+
+.explode__label {
+  font-weight: 800;
+}
+
+.explode__value {
+  min-width: 3.2em;
+  font-weight: 700;
+  color: var(--lime);
+}
+
+.explode input[type='range'] {
+  flex: 1;
+  accent-color: var(--lime);
+  min-height: 28px;
+  cursor: pointer;
+}
+
+.orna__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+/* בלי זה, רשימת הרכיבים הגלילה לרוחב מותחת את כל העמוד בנייד */
+.orna__layout > * {
+  min-width: 0;
+}
+
+@media (min-width: 960px) {
+  .orna__layout {
+    grid-template-columns: 220px 1fr;
+  }
+  .orna__side {
+    grid-column: 2;
+  }
+}
+
+.orna__stage {
+  position: relative;
+  display: grid;
+  gap: 16px;
+}
+
+.orna__canvas {
+  position: relative;
+  height: min(70vh, 640px);
+  min-height: 360px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--light);
+  touch-action: none;
+}
+
+.orna__loading {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: var(--ink-soft);
+}
+
+.orna__hint {
+  position: absolute;
+  bottom: 12px;
+  inset-inline: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  pointer-events: none;
+}
+
+.orna__note {
+  margin-top: 16px;
+  font-size: 0.9rem;
+}
+
+/* רשימת רכיבים */
+.part-list__title {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.part-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+@media (min-width: 960px) {
+  .part-list ul {
+    flex-direction: column;
+    overflow: visible;
+  }
+}
+
+.part-list__btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1.5px solid var(--line);
+  background: #fff;
+  font: inherit;
+  font-weight: 600;
+  text-align: start;
+  white-space: nowrap;
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
+}
+
+.part-list__btn:hover {
+  border-color: var(--teal);
+}
+
+.part-list__btn[aria-pressed='true'] {
+  background: var(--dark);
+  border-color: var(--dark);
+  color: var(--lime);
+}
+
+.part-list__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+/* כרטיס רכיב */
+.part-info {
+  position: relative;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--green);
+}
+
+@media (min-width: 1200px) {
+  .orna__layout {
+    grid-template-columns: 220px 1fr 340px;
+  }
+  .orna__side {
+    grid-column: auto;
+  }
+  .orna__side .part-info {
+    max-height: min(70vh, 640px);
+    overflow-y: auto;
+  }
+}
+
+.orna__empty {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--line);
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.part-info__title {
+  font-size: 1.75rem;
+  margin: 10px 0 8px;
+}
+
+.part-info__close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--light);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.part-info__facts {
+  margin: 0 0 16px;
+  padding-inline-start: 1.2em;
+  display: grid;
+  gap: 6px;
+}
+
+.part-info__facts li::marker {
+  color: var(--green);
+}
+
+.part-info__img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+  border-radius: var(--radius);
+  background: var(--light);
+}
+
+.part-cards {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 700px) {
+  .part-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .part-cards > .lead {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1100px) {
+  .part-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
