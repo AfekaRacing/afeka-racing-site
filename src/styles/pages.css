@@ -1,0 +1,367 @@
+.page-loading {
+  min-height: 80vh;
+}
+
+/* ===== Hero ===== */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  color: var(--on-dark);
+  background: var(--dark);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero__media,
+.hero__media img,
+.hero__placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero__media {
+  z-index: -1;
+}
+
+.hero__media img {
+  object-fit: cover;
+}
+
+.hero__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(20, 26, 23, 0.95) 10%, rgba(20, 26, 23, 0.35) 55%, rgba(20, 26, 23, 0.55));
+}
+
+.hero__placeholder {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(60% 50% at 70% 30%, rgba(25, 190, 115, 0.35), transparent 70%),
+    radial-gradient(40% 40% at 20% 60%, rgba(20, 150, 125, 0.35), transparent 70%),
+    repeating-linear-gradient(115deg, transparent 0 46px, rgba(190, 250, 35, 0.05) 46px 48px),
+    var(--dark);
+}
+
+.hero__placeholder span {
+  align-self: start;
+  margin-top: calc(var(--header-h) + 16px);
+  font-size: 0.85rem;
+  color: var(--on-dark-soft);
+  border: 1px dashed var(--line-dark);
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.hero__content {
+  padding-top: calc(var(--header-h) + 40px);
+  padding-bottom: clamp(48px, 9vh, 96px);
+}
+
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+  font-weight: 800;
+}
+
+.hero__number {
+  font-size: clamp(5.5rem, 22vw, 14rem);
+  line-height: 0.85;
+  color: var(--lime);
+  letter-spacing: -0.04em;
+  font-weight: 900;
+}
+
+.hero__unit {
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.1;
+}
+
+.hero__sub {
+  font-size: clamp(1.25rem, 3.4vw, 2rem);
+  font-weight: 500;
+  color: var(--on-dark-soft);
+  margin-top: 8px;
+}
+
+.hero__insta {
+  border: 2px solid var(--line-dark);
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+}
+
+/* ===== מספרים גדולים ===== */
+.stats-band {
+  padding-block: clamp(48px, 7vw, 88px);
+  border-top: 1px solid var(--line-dark);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 24px;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .stats {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+  border-top: 2px solid var(--green);
+  padding-top: 16px;
+}
+
+.stat__value {
+  margin: 0;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--on-dark);
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.stat__unit {
+  font-size: 0.4em;
+  font-weight: 700;
+  color: var(--lime);
+}
+
+.stat__label {
+  color: var(--on-dark-soft);
+  margin-top: 8px;
+}
+
+/* ===== כרטיסים ===== */
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--teal-text);
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.card-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+@media (min-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+.explore-card {
+  position: relative;
+  display: block;
+  height: 100%;
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  background: #fff;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  transition:
+    transform 0.3s var(--ease),
+    box-shadow 0.3s var(--ease),
+    border-color 0.3s;
+}
+
+.explore-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--green);
+  box-shadow: 0 20px 40px -20px rgba(20, 150, 125, 0.45);
+}
+
+.explore-card h3 {
+  font-size: 1.5rem;
+}
+
+.explore-card p {
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.explore-card__num {
+  font-weight: 800;
+  color: var(--teal-text);
+  margin-bottom: 40px;
+  display: block;
+}
+
+.explore-card__arrow {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: var(--light);
+  display: grid;
+  place-items: center;
+  transition: background-color 0.3s;
+}
+
+.explore-card:hover .explore-card__arrow {
+  background: var(--lime);
+}
+
+/* ===== אורנע 2.5 ===== */
+.next-band {
+  background:
+    radial-gradient(50% 80% at 10% 50%, rgba(190, 250, 35, 0.12), transparent 70%),
+    var(--dark);
+}
+
+.next-band__inner {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .next-band__inner {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+.next-band__goal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.next-band__number {
+  font-size: clamp(6rem, 20vw, 12rem);
+  font-weight: 900;
+  line-height: 0.85;
+  color: var(--lime);
+  letter-spacing: -0.04em;
+}
+
+.next-band__unit {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 800;
+}
+
+/* ===== כותרת עמוד ===== */
+.page-header {
+  background: var(--dark);
+  color: var(--on-dark);
+  padding-top: calc(var(--header-h) + clamp(48px, 8vw, 96px));
+  padding-bottom: clamp(48px, 8vw, 96px);
+}
+
+.page-header__title {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+}
+
+.page-header .lead {
+  color: var(--on-dark-soft);
+}
+
+/* ===== מי אנחנו ===== */
+.timeline {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .timeline {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+.timeline__item {
+  height: 100%;
+  border-top: 3px solid var(--green);
+  padding: 20px 0 0;
+}
+
+.timeline__year {
+  font-weight: 800;
+  color: var(--teal-text);
+  font-size: 1.125rem;
+}
+
+.timeline__item h3 {
+  font-size: 1.75rem;
+  margin-top: 8px;
+}
+
+.team-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+@media (min-width: 640px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.team-card {
+  height: 100%;
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  background: var(--light);
+}
+
+.team-card h3 {
+  font-size: 1.5rem;
+}
+
+.team-card p {
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.chips {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chips li {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--line);
+}

@@ -1,0 +1,10 @@
+node_modules
+dist
+.vercel
+*.log
+.DS_Store
+# תמונות מקור לפני כיווץ (הסקריפט שומר רק WebP באתר)
+images-source/
+
+# הגדרות מקומיות של Claude
+.claude/
