@@ -8,11 +8,11 @@ export const site = {
   carEn: 'ORNA 2.0',
   college: 'המכללה האקדמית להנדסה אפקה',
 
-  // לוגואים: כששמים קובץ בתיקייה public/brand, כותבים כאן את שמו (למשל '/brand/orna.svg').
-  // כל עוד השדה ריק, מוצג לוגו טקסט.
+  // לוגואים מהתיקייה public/brand. שדה ריק = מוצג לוגו טקסט.
   logos: {
-    orna: '',
-    afeka: '',
+    club: `${import.meta.env.BASE_URL}brand/afeka-racing.webp`,
+    orna: `${import.meta.env.BASE_URL}brand/orna.webp`,
+    afeka: `${import.meta.env.BASE_URL}brand/afeka.webp`,
   },
 
   contact: {

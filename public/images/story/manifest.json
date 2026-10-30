@@ -1,0 +1,62 @@
+[
+  {
+    "name": "dynamic-pitlane",
+    "src": "story/dynamic-pitlane",
+    "width": 3840,
+    "height": 2160
+  },
+  {
+    "name": "packing-crate",
+    "src": "story/packing-crate",
+    "width": 5712,
+    "height": 4284
+  },
+  {
+    "name": "race-night-repair",
+    "src": "story/race-night-repair",
+    "width": 4284,
+    "height": 5712
+  },
+  {
+    "name": "race-pitlane",
+    "src": "story/race-pitlane",
+    "width": 1536,
+    "height": 2048
+  },
+  {
+    "name": "race-rain",
+    "src": "story/race-rain",
+    "width": 1152,
+    "height": 2048
+  },
+  {
+    "name": "race-telemetry",
+    "src": "story/race-telemetry",
+    "width": 4284,
+    "height": 5712
+  },
+  {
+    "name": "registration-camp",
+    "src": "story/registration-camp",
+    "width": 6000,
+    "height": 4000
+  },
+  {
+    "name": "registration-night",
+    "src": "story/registration-night",
+    "width": 6000,
+    "height": 4000
+  },
+  {
+    "name": "static-car",
+    "src": "story/static-car",
+    "width": 6000,
+    "height": 4000
+  },
+  {
+    "name": "static-open",
+    "src": "story/static-open",
+    "width": 6000,
+    "height": 4000
+  }
+]

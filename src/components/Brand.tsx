@@ -4,8 +4,8 @@ import { site } from '../data/site'
 export function Brand() {
   return (
     <Link to="/" className="brand" aria-label={`${site.name} – לדף הבית`}>
-      {site.logos.orna ? (
-        <img src={site.logos.orna} alt="" />
+      {site.logos.club ? (
+        <img className="brand__logo" src={site.logos.club} alt="" />
       ) : (
         <>
           <span className="brand__mark" aria-hidden>

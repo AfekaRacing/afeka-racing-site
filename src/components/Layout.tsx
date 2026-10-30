@@ -4,11 +4,24 @@ import { Footer } from './Footer'
 import { Header } from './Header'
 
 export function Layout() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
 
+  // מעבר עמוד: חוזרים לראש העמוד, או לעוגן (#) אם יש. העמודים נטענים בעצלות, אז מחכים שהעוגן יופיע.
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
+    if (!hash) {
+      window.scrollTo(0, 0)
+      return
+    }
+    let tries = 0
+    const timer = setInterval(() => {
+      const el = document.getElementById(decodeURIComponent(hash.slice(1)))
+      if (el || ++tries > 20) {
+        clearInterval(timer)
+        el?.scrollIntoView({ behavior: 'instant' })
+      }
+    }, 50)
+    return () => clearInterval(timer)
+  }, [pathname, hash])
 
   return (
     <>

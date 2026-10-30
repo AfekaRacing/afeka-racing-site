@@ -50,27 +50,27 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-            <div style={{ marginTop: 24 }}>
-              {site.logos.afeka ? (
-                <img src={site.logos.afeka} alt={site.college} style={{ height: 48, width: 'auto' }} />
-              ) : (
-                <span className="logo-slot">לוגו אפקה</span>
-              )}
-            </div>
+            {site.logos.afeka && (
+              <img className="footer__afeka" src={site.logos.afeka} alt={site.college} loading="lazy" />
+            )}
           </div>
         </div>
 
         <div className="footer__sponsors">
           <h2>השותפים שלנו</h2>
-          <div className="footer__sponsors-row">
-            {sponsors.length === 0 ? (
-              <span className="logo-slot">לוגואים של ספונסרים</span>
-            ) : (
-              sponsors.map((s) => (
-                <img key={s.name} src={s.logo} alt={s.name} loading="lazy" style={{ height: 40, width: 'auto' }} />
-              ))
-            )}
-          </div>
+          <ul className="sponsor-wall">
+            {sponsors.map((s) => (
+              <li key={s.name} className="sponsor-wall__item">
+                {s.url ? (
+                  <a href={s.url} target="_blank" rel="noopener noreferrer">
+                    <img src={s.logo} alt={s.name} loading="lazy" />
+                  </a>
+                ) : (
+                  <img src={s.logo} alt={s.name} loading="lazy" />
+                )}
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="footer__bottom">

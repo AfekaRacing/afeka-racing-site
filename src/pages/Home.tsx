@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowIcon, InstagramIcon } from '../components/Icons'
+import { Photo } from '../components/Photo'
 import { Reveal } from '../components/Reveal'
 import { StatGrid } from '../components/StatGrid'
 import { explore, hero, intro, next } from '../data/home'
@@ -10,9 +11,9 @@ export default function Home() {
   return (
     <>
       <section className="hero">
-        <div className="hero__media" aria-hidden={!hero.image}>
+        <div className="hero__media">
           {hero.image ? (
-            <img src={hero.image} alt={hero.imageAlt} fetchPriority="high" />
+            <Photo src={hero.image} alt={hero.imageAlt} priority />
           ) : (
             <div className="hero__placeholder">
               <span>[להשלים: תמונת ה-Hero של אורנע בזולדר]</span>

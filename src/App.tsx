@@ -3,9 +3,11 @@ import { lazy } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import Home from './pages/Home'
-import { Belgium, Gallery, Join, NotFound, Orna, Projects } from './pages/stubs'
+import { Gallery, Join, NotFound, Orna } from './pages/stubs'
 
 const About = lazy(() => import('./pages/About'))
+const Projects = lazy(() => import('./pages/Projects'))
+const Belgium = lazy(() => import('./pages/Belgium'))
 
 export default function App() {
   return (

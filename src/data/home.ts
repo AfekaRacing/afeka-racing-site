@@ -5,9 +5,9 @@ export const hero = {
   titleNumber: '788',
   titleUnit: 'ק״מ ב-24 שעות',
   subtitle: 'ברכב שסטודנטים בנו מאפס',
-  // תמונת ה-Hero: לשים קובץ ב-public/images/hero/ ולכתוב כאן את הנתיב.
-  image: '',
-  imageAlt: 'אורנע 2 על מסלול זולדר בבלגיה',
+  // תמונת ה-Hero: נתיב מתוך public/images, בלי סיומת (נוצר ב-npm run images).
+  image: 'hero/orna-zolder-pitlane',
+  imageAlt: 'אורנע 2 בפיט ליין של מסלול זולדר בבלגיה',
   primaryCta: { to: '/orna', label: 'הכירו את אורנע' },
   secondaryCta: { to: '/join', label: 'הצטרפו אלינו' },
 }

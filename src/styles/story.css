@@ -1,0 +1,285 @@
+/* ===== תמונות ===== */
+.photo-placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--line);
+  background: repeating-linear-gradient(135deg, transparent 0 14px, rgba(20, 150, 125, 0.06) 14px 16px), #fff;
+  padding: 16px;
+  text-align: center;
+}
+
+.photo-placeholder span {
+  color: #5a4600;
+  background: #fff4c2;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ===== פרויקטים ===== */
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.filter__btn {
+  min-height: 44px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  background: #fff;
+  font: inherit;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.filter__btn:hover {
+  border-color: var(--teal);
+}
+
+.filter__btn[aria-pressed='true'] {
+  background: var(--dark);
+  border-color: var(--dark);
+  color: var(--lime);
+}
+
+.project-grid {
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 900px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+.project-card {
+  height: 100%;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+
+.project-card__img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.project-card__body {
+  padding: clamp(20px, 4vw, 32px);
+}
+
+.project-card h2 {
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  margin-top: 12px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--light);
+  color: var(--teal-text);
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin: 8px 0 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.facts div {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.facts dd {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.facts dt {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.story-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.story-steps__item {
+  position: relative;
+  padding-inline-start: 18px;
+  border-inline-start: 3px solid var(--green);
+}
+
+.story-steps__item--problem {
+  border-color: #e0663b;
+}
+
+.story-steps__item--fix {
+  border-color: var(--lime);
+}
+
+.story-steps__item h3 {
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  margin-bottom: 2px;
+}
+
+.story-steps__item p {
+  margin: 0;
+}
+
+/* ===== בלגיה ===== */
+.belgium-toc {
+  list-style: none;
+  margin: 32px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.belgium-toc a {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line-dark);
+  text-decoration: none;
+  color: var(--on-dark-soft);
+  font-size: 0.9rem;
+}
+
+.belgium-toc a:hover {
+  color: var(--on-dark);
+  border-color: var(--lime);
+}
+
+.story {
+  position: relative;
+}
+
+.story__progress {
+  position: fixed;
+  top: var(--header-h);
+  right: 0;
+  width: 4px;
+  height: calc(100vh - var(--header-h));
+  background: var(--lime);
+  transform-origin: top;
+  z-index: 40;
+}
+
+.chapter {
+  display: grid;
+  gap: 24px;
+  padding-block: clamp(56px, 9vw, 112px);
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: var(--header-h);
+}
+
+.chapter:last-child {
+  border-bottom: 0;
+}
+
+@media (min-width: 900px) {
+  .chapter {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 64px;
+    align-items: start;
+  }
+  /* הטקסט נשאר במקום בזמן שהתמונות גוללות לידו */
+  .chapter__text {
+    position: sticky;
+    top: calc(var(--header-h) + 48px);
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .chapter__media {
+    grid-column: 2;
+  }
+}
+
+.chapter__media {
+  display: grid;
+  gap: 16px;
+}
+
+.chapter__img {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* גובה קבוע מראש: הדף לא קופץ בזמן שהתמונות נטענות */
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  background: var(--dark-3);
+}
+
+.chapter__index {
+  display: block;
+  font-size: clamp(3.5rem, 9vw, 6rem);
+  font-weight: 900;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--teal);
+}
+
+.chapter__date {
+  display: inline-block;
+  margin: 12px 0 8px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--dark);
+  color: var(--lime);
+  font-weight: 700;
+}
+
+.chapter h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.chapter--hard .chapter__date {
+  background: #e0663b;
+  color: var(--dark);
+}
+
+.quote {
+  margin: 24px 0 0;
+  padding: 16px 20px;
+  border-inline-start: 4px solid var(--lime);
+  background: #fff;
+  border-radius: 0 12px 12px 0;
+  font-size: 1.125rem;
+  font-style: italic;
+}
+
+.race-numbers {
+  background:
+    radial-gradient(60% 80% at 80% 0%, rgba(25, 190, 115, 0.18), transparent 70%),
+    var(--dark);
+}

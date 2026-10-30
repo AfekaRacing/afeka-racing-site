@@ -264,23 +264,7 @@
   border-top: 1px solid var(--line-dark);
 }
 
-.footer__sponsors-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: center;
-}
 
-.logo-slot {
-  height: 56px;
-  min-width: 120px;
-  padding: 8px 16px;
-  border: 1px dashed var(--line-dark);
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-  font-size: 0.8rem;
-}
 
 .footer__bottom {
   margin-top: 40px;
@@ -289,4 +273,56 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 8px;
+}
+
+/* ===== לוגואים ===== */
+.brand__logo {
+  height: 38px;
+  width: auto;
+  /* הלוגו כהה על שקוף; בכותרת הכהה הופכים אותו ללבן */
+  filter: brightness(0) invert(1);
+}
+
+.footer__afeka {
+  margin-top: 24px;
+  height: 48px;
+  width: auto;
+  border-radius: 6px;
+}
+
+.sponsor-wall {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .sponsor-wall {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sponsor-wall {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+.sponsor-wall__item {
+  background: #fff;
+  border-radius: 12px;
+  height: 84px;
+  padding: 14px;
+  display: grid;
+  place-items: center;
+}
+
+.sponsor-wall__item img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
 }
