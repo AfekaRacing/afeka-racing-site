@@ -23,7 +23,7 @@ npm run dev
 | `teams.ts` | חמשת הצוותים |
 | `race.ts` | מספרי התחרות |
 | `projects.ts` | כרטיסי הפרויקטים |
-| `belgium.ts` | פרקי הסיפור של בלגיה, ציטוטים ותמונות |
+| `belgium.ts` | פרקי הסיפור של בלגיה, טבלת התוצאות, ניתוח המרוץ |
 | `sponsors.ts` | ספונסרים |
 | `parts.ts` | רכיבי הצפייה התלת-ממדית: טקסטים, עובדות, קבצי מודל |
 
@@ -42,7 +42,12 @@ npm run dev
 
 ## מודלים תלת-ממדיים
 
-המודל הנוכחי בעמוד "פרקו את אורנע" זמני, מצורות פשוטות. הוראות להחלפה במודלים מ-SolidWorks: [docs/models.md](docs/models.md).
+המודלים בעמוד "פרקו את אורנע" יוצאו אוטומטית מהמכלול של SolidWorks. הסבר ועדכון: [docs/models.md](docs/models.md).
+
+## מדריכים
+
+- [docs/content-guide.md](docs/content-guide.md): איך מעדכנים טקסטים ותמונות.
+- [docs/how-it-works.md](docs/how-it-works.md): איך המחשב, GitHub ו-Vercel מדברים ביניהם.
 
 ## הטופס
 

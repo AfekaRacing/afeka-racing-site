@@ -1,7 +1,9 @@
 import { motion, useScroll, useSpring } from 'motion/react'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { ClassResults } from '../components/ClassResults'
 import { Photo, PhotoPlaceholder } from '../components/Photo'
+import { RaceDebrief } from '../components/RaceDebrief'
 import { Results } from '../components/Results'
 import { Reveal } from '../components/Reveal'
 import { StatGrid } from '../components/StatGrid'
@@ -86,6 +88,9 @@ export default function Belgium() {
             <Results />
           </div>
         </section>
+
+        <ClassResults />
+        <RaceDebrief />
 
         <div className="container">
           {chapters.slice(raceIndex + 1).map((c, i) => (

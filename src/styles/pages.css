@@ -425,3 +425,69 @@
   font-weight: 600;
   line-height: 1.4;
 }
+
+/* ===== דף הבית: ציר היעדים ===== */
+.intro__p + .intro__p {
+  margin-top: 12px;
+}
+
+.roadmap {
+  list-style: none;
+  margin: 32px 0 24px;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .roadmap {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+.roadmap li {
+  height: 100%;
+}
+
+.roadmap__step {
+  height: 100%;
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.roadmap__step h3 {
+  font-size: 1.25rem;
+  margin: 6px 0 4px;
+}
+
+.roadmap__step p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.roadmap__when {
+  font-weight: 900;
+  font-size: 0.9rem;
+  color: var(--teal-text);
+}
+
+.roadmap__step--next {
+  background: var(--dark);
+  border-color: var(--dark);
+  color: var(--on-dark);
+}
+
+.roadmap__step--next p {
+  color: var(--on-dark-soft);
+}
+
+.roadmap__step--next .roadmap__when {
+  color: var(--lime);
+}
+
+.roadmap__step--dream {
+  background: linear-gradient(135deg, #fff6d6, #e9f8f0);
+}

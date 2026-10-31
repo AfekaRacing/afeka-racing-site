@@ -64,12 +64,28 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <Reveal>
+            <span className="eyebrow">{intro.eyebrow}</span>
             <h2 className="section-title">{intro.title}</h2>
-            <p className="lead">{intro.text}</p>
-            <Link to={intro.link.to} className="text-link">
-              {intro.link.label} <ArrowIcon />
-            </Link>
+            {intro.paragraphs.map((p) => (
+              <p key={p} className="lead intro__p">
+                {p}
+              </p>
+            ))}
           </Reveal>
+          <ol className="roadmap" aria-label="היעדים שלנו">
+            {intro.roadmap.map((step, i) => (
+              <li key={step.when}>
+                <Reveal delay={i * 0.12} className={`roadmap__step roadmap__step--${step.status}`}>
+                  <span className="roadmap__when">{step.when}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
+          <Link to={intro.link.to} className="text-link">
+            {intro.link.label} <ArrowIcon />
+          </Link>
           <div className="card-grid">
             {explore.map((item, i) => (
               <Reveal key={item.to} delay={i * 0.1}>
