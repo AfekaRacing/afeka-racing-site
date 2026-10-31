@@ -98,7 +98,7 @@ export const chapters: Chapter[] = [
     date: '21.9',
     title: 'בדרך הביתה',
     text: 'ארזנו את אורנע 2 בחזרה לארגז. עכשיו אנחנו בונים את אורנע 2.5, והמטרה: 320 הקפות בבלגיה 2028.',
-    images: [{ src: 'story/packing-crate', alt: 'אורנע 2 ארוזה בארגז העץ' }],
+    images: [{ src: 'story/home-crate-trophy', alt: 'אורנע 2 ארוזה בארגז העץ, והגביע לידה' }],
   },
 ]
 

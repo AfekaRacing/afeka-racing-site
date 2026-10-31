@@ -293,6 +293,12 @@
       "height": 2160
     },
     {
+      "name": "home-crate-trophy",
+      "src": "story/home-crate-trophy",
+      "width": 1792,
+      "height": 2390
+    },
+    {
       "name": "packing-crate",
       "src": "story/packing-crate",
       "width": 5712,
