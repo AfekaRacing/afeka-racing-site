@@ -9,3 +9,7 @@ images-source/
 # הגדרות מקומיות של Claude
 .claude/
 *.tsbuildinfo
+
+# קבצי SolidWorks גדולים: לא נכנסים ל-Git
+Solid Assembly/
+models-source/

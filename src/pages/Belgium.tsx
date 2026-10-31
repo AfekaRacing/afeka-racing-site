@@ -98,7 +98,7 @@ export default function Belgium() {
         <div className="container">
           <Reveal>
             <span className="eyebrow">הפרק הבא</span>
-            <h2 className="section-title">אורנע 2.5: יעד 300 הקפות</h2>
+            <h2 className="section-title">אורנע 2.5: יעד 320 הקפות</h2>
             <p className="lead">רוצים להיות בצוות שייסע לבלגיה בפעם הבאה?</p>
             <Link to="/join" className="btn btn--primary">
               הצטרפו אלינו
