@@ -270,3 +270,20 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+.part-list__nomodel {
+  margin-inline-start: auto;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.part-list__btn[aria-pressed='true'] .part-list__nomodel {
+  color: var(--on-dark-soft);
+}
+
+.part-info__missing {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}

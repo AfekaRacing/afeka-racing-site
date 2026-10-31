@@ -1,5 +1,42 @@
 # מודלים תלת-ממדיים: מ-SolidWorks לאתר
 
+## הדרך האוטומטית (מה שבפועל בנינו)
+
+על מחשב שמותקן בו SolidWorks אפשר להמיר את כל הרכב בשתי פקודות, בלי Blender:
+
+1. שמים את קבצי ה-SolidWorks בתיקייה `Solid Assembly` בתוך תיקיית האתר. התיקייה לא עולה ל-Git.
+2. בפעם הראשונה בלבד, בונים את כלי הייצוא:
+
+```bash
+scripts\cad\build.cmd
+```
+
+3. מייצאים מ-SolidWorks. הכלי מתחבר ל-SolidWorks הפתוח, או פותח אותו בעצמו:
+
+```bash
+scripts\cad\swmesh.exe export "Solid Assembly\Full Assembly.SLDASM" models-source\stl
+```
+
+4. ממירים לקבצים של האתר:
+
+```bash
+npm run models
+```
+
+**מה כל שלב עושה:**
+- **`swmesh`:** קורא את המכלול דרך הממשק הרשמי של SolidWorks. לכל רכיב ראשי הוא שומר רשת משולשים במיקום המדויק שלו ברכב. חלקים מוסתרים, מדוכאים (suppressed) וחלקי דמה ("dummy") לא נכללים.
+- **`npm run models`:** עושה את מה שעושים ידנית ב-Blender. הוא מאחד כל רכיב לקובץ אחד, מסובב לצירים של האתר, מקטין את מספר המשולשים, דוחס, ושומר ב-`public/models/<id>.glb`.
+
+איזה רכיב ראשי במכלול שייך לאיזה רכיב באתר, וכמה משולשים מותר לכל אחד: הרשימה `PARTS` בתחילת `scripts/build-models.mjs`. כדי לראות את מבנה המכלול:
+
+```bash
+scripts\cad\swmesh.exe list "Solid Assembly\Full Assembly.SLDASM" models-source\tree.txt
+```
+
+**חסרים כרגע במכלול:** פאנלים סולאריים ו-PDU/EMU. ברגע שהם יתווספו למכלול, מוסיפים שורה ל-`PARTS` וממלאים את `model` ב-`src/data/parts.ts`.
+
+ההוראות הידניות למטה נשארו לשימוש בלי SolidWorks.
+
 ## למה בכלל צריך המרה? (ההסבר בקצרה)
 
 - **SolidWorks שומר גאומטריה מתמטית מדויקת:** משטחים וקשתות מוגדרים בנוסחאות. דפדפן לא יודע להציג את זה.

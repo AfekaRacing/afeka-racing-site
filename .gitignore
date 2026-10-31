@@ -13,3 +13,6 @@ images-source/
 # קבצי SolidWorks גדולים: לא נכנסים ל-Git
 Solid Assembly/
 models-source/
+# כלי הייצוא מ-SolidWorks: נבנה מקומית, וספריות SolidWorks לא נכנסות ל-Git
+scripts/cad/*.exe
+scripts/cad/*.dll

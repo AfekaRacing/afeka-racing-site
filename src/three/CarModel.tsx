@@ -57,7 +57,9 @@ function ShapeMesh({ shape, material, glass }: { shape: Shape; material: THREE.M
 }
 
 // מודל אמיתי מקובץ GLB. החומרים משוכפלים כדי שאפשר יהיה להדגיש רכיב אחד בלי לשנות אחרים.
-function GltfPart({ url, highlight, dim }: { url: string; highlight: boolean; dim: boolean }) {
+type GltfProps = { url: string; color: string; translucent: boolean; highlight: boolean; dim: boolean }
+
+function GltfPart({ url, color, translucent, highlight, dim }: GltfProps) {
   const { scene } = useGLTF(`${import.meta.env.BASE_URL}${url}`)
   const object = useMemo(() => {
     const clone = scene.clone(true)
@@ -73,13 +75,18 @@ function GltfPart({ url, highlight, dim }: { url: string; highlight: boolean; di
       const mesh = o as THREE.Mesh
       if (!mesh.isMesh) return
       const m = mesh.material as THREE.MeshStandardMaterial
+      m.color.set(color)
       m.emissive?.set(highlight ? '#befa23' : '#000000')
       m.emissiveIntensity = highlight ? 0.35 : 0
-      m.transparent = dim
-      m.opacity = dim ? 0.18 : 1
-      m.depthWrite = !dim
+      // המעטפת שקופה למחצה כברירת מחדל, כדי שרואים את מה שבתוכה
+      const base = translucent && !highlight ? 0.28 : 1
+      const opacity = dim ? Math.min(base, 0.15) : base
+      m.transparent = opacity < 1
+      m.opacity = opacity
+      m.depthWrite = opacity === 1
+      m.side = translucent ? THREE.DoubleSide : THREE.FrontSide
     })
-  }, [object, highlight, dim])
+  }, [object, color, translucent, highlight, dim])
 
   return (
     <primitive
@@ -165,7 +172,13 @@ function PartGroup({ part, explode, selected, dimmed, onSelect, register }: Part
       onPointerOut={() => (document.body.style.cursor = '')}
     >
       {part.model ? (
-        <GltfPart url={part.model} highlight={selected} dim={dimmed} />
+        <GltfPart
+          url={part.model}
+          color={part.color}
+          translucent={!!part.translucent}
+          highlight={selected}
+          dim={dimmed}
+        />
       ) : (
         part.shapes.map((s, i) => (
           <group key={i} ref={(g) => void (shapeRefs.current[i] = g)}>

@@ -8,7 +8,7 @@ import { deviceProfile } from '../three/device'
 // התלת-ממד (three.js) נטען רק כשבאמת מציגים אותו
 const OrnaScene = lazy(() => import('../three/OrnaScene'))
 
-function PartInfo({ part, onClose }: { part: Part; onClose?: () => void }) {
+function PartInfo({ part, onClose, showMissing }: { part: Part; onClose?: () => void; showMissing?: boolean }) {
   return (
     <article className="part-info" aria-live="polite">
       {onClose && (
@@ -18,6 +18,7 @@ function PartInfo({ part, onClose }: { part: Part; onClose?: () => void }) {
       )}
       <span className="tag">צוות {teamName(part.team)}</span>
       <h2 className="part-info__title">{part.name}</h2>
+      {showMissing && !hasModel(part) && <p className="part-info__missing">{ornaViewer.missingModelNote}</p>}
       <p>{part.description}</p>
       <ul className="part-info__facts">
         {part.facts.map((f) => (
@@ -31,7 +32,10 @@ function PartInfo({ part, onClose }: { part: Part; onClose?: () => void }) {
   )
 }
 
+const hasModel = (p: Part) => !!p.model || !!p.sharedModel
+
 function PartList({ selectedId, onSelect }: { selectedId: string | null; onSelect: (id: string) => void }) {
+  const realModels = parts.some((p) => p.model)
   return (
     <nav className="part-list" aria-label="רשימת רכיבים">
       <h2 className="part-list__title">רכיבים</h2>
@@ -46,6 +50,7 @@ function PartList({ selectedId, onSelect }: { selectedId: string | null; onSelec
             >
               <span className="part-list__dot" style={{ background: p.color }} aria-hidden />
               {p.name}
+              {realModels && !hasModel(p) && <span className="part-list__nomodel">בלי מודל</span>}
             </button>
           </li>
         ))}
@@ -61,7 +66,8 @@ export default function Orna() {
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [resetSignal, setResetSignal] = useState(0)
   const selected = parts.find((p) => p.id === selectedId) ?? null
-  const usingPlaceholder = parts.some((p) => !p.model)
+  const realModels = parts.some((p) => p.model)
+  const usingPlaceholder = !realModels
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setSelectedId(null)
@@ -140,7 +146,7 @@ export default function Orna() {
               </div>
               <div className="orna__side">
                 {selected ? (
-                  <PartInfo part={selected} onClose={() => setSelectedId(null)} />
+                  <PartInfo part={selected} onClose={() => setSelectedId(null)} showMissing={realModels} />
                 ) : (
                   <p className="orna__empty">בחרו רכיב מהרשימה או לחצו עליו במודל</p>
                 )}

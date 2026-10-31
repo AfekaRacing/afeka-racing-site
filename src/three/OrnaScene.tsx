@@ -14,9 +14,14 @@ type Props = {
   resetSignal: number // משתנה בכל לחיצה על "הרכב השלם"
 }
 
-const HOME: [number, number, number, number, number, number] = [3.4, 2.1, 3.6, 0, 0.55, 0]
+const HOME: [number, number, number, number, number, number] = [3.0, 1.6, 3.3, 0, 0.45, 0]
 
 export default function OrnaScene({ parts, explode, selectedId, onSelect, lite, resetSignal }: Props) {
+  // כשיש מודלים אמיתיים מציגים רק אותם; אחרת את המודל הזמני
+  const realModels = parts.some((p) => p.model)
+  const shown = realModels ? parts.filter((p) => p.model) : parts
+  const selectedPart = parts.find((p) => p.id === selectedId)
+  const sceneSelected = realModels && selectedPart?.sharedModel ? selectedPart.sharedModel : selectedId
   const controls = useRef<CameraControls>(null)
   const objects = useRef(new Map<string, THREE.Object3D>())
 
@@ -30,7 +35,7 @@ export default function OrnaScene({ parts, explode, selectedId, onSelect, lite, 
     const c = controls.current
     if (!c) return
     const timer = setTimeout(() => {
-      const obj = selectedId ? objects.current.get(selectedId) : null
+      const obj = sceneSelected ? objects.current.get(sceneSelected) : null
       if (obj) {
         const box = new THREE.Box3().setFromObject(obj)
         if (!box.isEmpty()) c.fitToBox(box, true, { paddingTop: 0.5, paddingBottom: 0.5, paddingLeft: 0.7, paddingRight: 0.7 })
@@ -41,7 +46,7 @@ export default function OrnaScene({ parts, explode, selectedId, onSelect, lite, 
       }
     }, 450)
     return () => clearTimeout(timer)
-  }, [selectedId, explode, resetSignal])
+  }, [sceneSelected, explode, resetSignal])
 
   return (
     <Canvas
@@ -58,10 +63,10 @@ export default function OrnaScene({ parts, explode, selectedId, onSelect, lite, 
       <directionalLight position={[-4, 3, -3]} intensity={0.5} />
 
       <Suspense fallback={null}>
-        <CarModel parts={parts} explode={explode} selectedId={selectedId} onSelect={onSelect} register={register} />
+        <CarModel parts={shown} explode={explode} selectedId={sceneSelected} onSelect={onSelect} register={register} />
       </Suspense>
 
-      {!lite && <ContactShadows position={[0, -0.001, 0]} opacity={0.35} scale={8} blur={2.4} far={2} />}
+      {!lite && <ContactShadows position={[0, -0.001, 0]} opacity={0.35} scale={10} blur={2.4} far={2} />}
       <gridHelper args={[12, 24, '#b5d6c5', '#d3eadf']} position={[0, -0.002, 0]} />
 
       <CameraControls ref={controls} minDistance={0.6} maxDistance={12} maxPolarAngle={Math.PI / 2 - 0.05} makeDefault />

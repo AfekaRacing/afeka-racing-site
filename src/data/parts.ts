@@ -2,8 +2,9 @@
 // כאן עורכים טקסטים, עובדות, תמונות וקבצי מודל, בלי לגעת בקוד.
 //
 // model: נתיב לקובץ GLB בתיקייה public/models (למשל 'models/chassis.glb').
-//        כל עוד השדה ריק, מוצג מודל זמני מצורות פשוטות (shapes).
-//        הוראות ייצוא מ-SolidWorks: docs/models.md
+//        הקבצים נוצרים מ-SolidWorks אוטומטית: docs/models.md.
+//        ברגע שיש לפחות רכיב אחד עם model, מוצגים רק רכיבים עם model; השאר מופיעים ברשימה בלבד.
+//        אם לאף רכיב אין model, מוצג מודל זמני מצורות פשוטות (shapes).
 // explode: לאן הרכיב זז כשמפרקים את הרכב (במטרים, x = קדימה, y = למעלה, z = שמאלה).
 // image: תמונה מ-public/images (בלי סיומת).
 
@@ -28,6 +29,8 @@ export type Part = {
   image?: string
   imageAlt?: string
   model: string
+  translucent?: boolean // שקוף למחצה (המעטפת), כדי שרואים פנימה
+  sharedModel?: string // רכיב שהמודל שלו הוא חלק ממודל של רכיב אחר (למשל קשת ההתהפכות בתוך השלדה)
   color: string
   explode: Vec3
   shapes: Shape[]
@@ -55,7 +58,7 @@ export const parts: Part[] = [
     ],
     image: 'projects/chassis-cad',
     imageAlt: 'מודל SolidWorks של השלדה',
-    model: '',
+    model: 'models/chassis.glb',
     color: steel,
     explode: [0, 0, 0],
     shapes: [
@@ -88,6 +91,7 @@ export const parts: Part[] = [
       'תרחיש ההתהפכות לאחור היה הקשה ביותר בבדיקות',
     ],
     model: '',
+    sharedModel: 'chassis',
     color: '#d9e3dd',
     explode: [0, 0.9, 0],
     shapes: [
@@ -106,9 +110,9 @@ export const parts: Part[] = [
       'הדבק בין הקרבון לאלומיניום נכשל',
       'המשולש התחתון הוחלף לפלדה 5 מ״מ בחיתוך לייזר',
     ],
-    model: '',
+    model: 'models/front-suspension.glb',
     color: '#19be73',
-    explode: [0.75, 0, 0],
+    explode: [1.3, 0, 0],
     shapes: ([1, -1] as const).flatMap((s) => [
       { type: 'tube' as const, from: [0.95, 0.3, 0.3 * s] as Vec3, to: [1.12, 0.26, 0.5 * s] as Vec3, r: 0.014, explode: [0, 0, 0.35 * s] as Vec3 },
       { type: 'tube' as const, from: [1.3, 0.3, 0.3 * s] as Vec3, to: [1.12, 0.26, 0.5 * s] as Vec3, r: 0.014, explode: [0, 0, 0.35 * s] as Vec3 },
@@ -129,9 +133,9 @@ export const parts: Part[] = [
     ],
     image: 'projects/rear-suspension-cad',
     imageAlt: 'מודל SolidWorks של המתלה האחורי',
-    model: '',
+    model: 'models/rear-suspension.glb',
     color: '#14967d',
-    explode: [-0.8, 0, 0],
+    explode: [-1.4, 0, 0],
     shapes: [
       { type: 'tube', from: [-0.85, 0.34, 0.13], to: [-1.25, 0.28, 0.08], r: 0.025 },
       { type: 'tube', from: [-0.85, 0.34, -0.13], to: [-1.25, 0.28, -0.08], r: 0.025 },
@@ -146,9 +150,9 @@ export const parts: Part[] = [
     team: 'mechanical',
     description: 'מסרק ושן מבוסס קארטינג, שנבחר אחרי השוואה של כ-17 מסרקים.',
     facts: ['גלגל הגה של 180°', 'מבוסס על מסרק של קארטינג'],
-    model: '',
+    model: 'models/steering.glb',
     color: '#befa23',
-    explode: [0.5, 0.6, 0],
+    explode: [0.5, 1.0, 0],
     shapes: [
       { type: 'tube', from: [1.18, 0.4, 0.32], to: [1.18, 0.4, -0.32], r: 0.022 },
       { type: 'tube', from: [1.18, 0.4, 0], to: [0.6, 0.7, 0], r: 0.016 },
@@ -165,9 +169,9 @@ export const parts: Part[] = [
       'ווסת לחץ במעגל האחורי פתר את הבעיה',
       'תאוטה מחושבת של 8.2 מ׳/ש², פי 2 מדרישת התקנון',
     ],
-    model: '',
+    model: 'models/brakes.glb',
     color: '#e0663b',
-    explode: [0.75, 0.05, 0],
+    explode: [0.7, 0.5, -1.3],
     shapes: [
       { type: 'wheel', r: 0.12, width: 0.012, at: [1.12, 0.28, 0.44], explode: [0, 0, 0.5] },
       { type: 'wheel', r: 0.12, width: 0.012, at: [1.12, 0.28, -0.44], explode: [0, 0, -0.5] },
@@ -188,9 +192,9 @@ export const parts: Part[] = [
       'ריתוך בגיג ואיזון',
       'שני סטים: לכביש יבש ולגשם',
     ],
-    model: '',
+    model: 'models/wheels.glb',
     color: '#1d2421',
-    explode: [0, 0, 0],
+    explode: [2.2, 0, 0],
     shapes: [
       { type: 'wheel', r: 0.28, width: 0.08, at: [1.12, 0.28, 0.54], explode: [0, 0, 0.9] },
       { type: 'wheel', r: 0.28, width: 0.08, at: [1.12, 0.28, -0.54], explode: [0, 0, -0.9] },
@@ -207,9 +211,9 @@ export const parts: Part[] = [
       'שתי סוללות 13S19P במארז אחד',
       'BMS לכל סוללה ו-26 חיישני טמפרטורה',
     ],
-    model: '',
+    model: 'models/battery.glb',
     color: '#2f7cf6',
-    explode: [-0.2, 0.15, -1.3],
+    explode: [0.4, 0.3, 1.5],
     shapes: [{ type: 'box', size: [0.55, 0.26, 0.5], at: [-0.12, 0.42, 0] }],
   },
   {
@@ -254,9 +258,10 @@ export const parts: Part[] = [
     ],
     image: 'projects/body-9-parts',
     imageAlt: 'המעטפת מפורקת ל-9 חלקים',
-    model: '',
+    model: 'models/body.glb',
+    translucent: true,
     color: '#19be73',
-    explode: [0, 1.2, 1.7],
+    explode: [0, 1.7, 1.9],
     shapes: [
       { type: 'shell', scale: [1.85, 0.5, 0.66], at: [0, 0.62, 0] },
       { type: 'shell', scale: [0.6, 0.32, 0.36], at: [0.25, 0.98, 0], glass: true, explode: [0.4, 0.5, 0] },
@@ -269,4 +274,5 @@ export const ornaViewer = {
   title: 'פרקו את אורנע',
   lead: 'סובבו, הגדילו ופרקו את הרכב. לחצו על רכיב כדי לשמוע עליו.',
   placeholderNote: 'זהו מודל זמני מצורות פשוטות. המודל האמיתי מ-SolidWorks יחליף אותו.',
+  missingModelNote: 'לרכיב הזה עוד אין מודל תלת-ממדי',
 }
