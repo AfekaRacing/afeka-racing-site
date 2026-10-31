@@ -9,7 +9,7 @@
 //      וקובץ manifest.json עם רשימת התמונות ומידותיהן.
 //
 // תמונה שכבר עובדה ולא השתנתה מדולגת, כך שאפשר להריץ שוב בכל פעם שמוסיפים תמונות.
-import { existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs'
 import { basename, extname, join, relative } from 'node:path'
 import sharp from 'sharp'
 
@@ -89,6 +89,16 @@ for (const [dir, list] of manifests) {
   list.sort((a, b) => a.name.localeCompare(b.name))
   writeFileSync(join(dir, 'manifest.json'), JSON.stringify(list, null, 2))
 }
+
+// אינדקס של כל התמונות באתר (כולל תיקיות שלא עובדו בהרצה הזו), לשימוש הגלריה
+const index = {}
+for (const file of walk(OUT)) {
+  if (basename(file) !== 'manifest.json') continue
+  const dir = relative(OUT, join(file, '..')).replaceAll('\\', '/')
+  index[dir] = JSON.parse(readFileSync(file, 'utf8'))
+}
+mkdirSync('src/data/generated', { recursive: true })
+writeFileSync('src/data/generated/images.json', JSON.stringify(index, null, 2))
 
 console.log(`נוצרו ${done} קבצים, ${skipped} דולגו (כבר קיימים).`)
 if (unsupported.length) {

@@ -1,0 +1,326 @@
+{
+  "gallery/1-ashdod-test": [
+    {
+      "name": "1-ashdod-test-01",
+      "src": "gallery/1-ashdod-test/1-ashdod-test-01",
+      "width": 6000,
+      "height": 4000
+    },
+    {
+      "name": "1-ashdod-test-03",
+      "src": "gallery/1-ashdod-test/1-ashdod-test-03",
+      "width": 6000,
+      "height": 4000
+    },
+    {
+      "name": "1-ashdod-test-21",
+      "src": "gallery/1-ashdod-test/1-ashdod-test-21",
+      "width": 6000,
+      "height": 4000
+    },
+    {
+      "name": "1-ashdod-test-22",
+      "src": "gallery/1-ashdod-test/1-ashdod-test-22",
+      "width": 6000,
+      "height": 4000
+    }
+  ],
+  "gallery/2-launch": [
+    {
+      "name": "2-launch-25",
+      "src": "gallery/2-launch/2-launch-25",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "name": "2-launch-26",
+      "src": "gallery/2-launch/2-launch-26",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "name": "2-launch-27",
+      "src": "gallery/2-launch/2-launch-27",
+      "width": 4284,
+      "height": 5712
+    },
+    {
+      "name": "2-launch-28",
+      "src": "gallery/2-launch/2-launch-28",
+      "width": 4284,
+      "height": 5712
+    }
+  ],
+  "gallery/3-registration": [
+    {
+      "name": "3-registration-09",
+      "src": "gallery/3-registration/3-registration-09",
+      "width": 6000,
+      "height": 4000
+    },
+    {
+      "name": "3-registration-10",
+      "src": "gallery/3-registration/3-registration-10",
+      "width": 6000,
+      "height": 4000
+    },
+    {
+      "name": "3-registration-12",
+      "src": "gallery/3-registration/3-registration-12",
+      "width": 6000,
+      "height": 4000
+    },
+    {
+      "name": "3-registration-43",
+      "src": "gallery/3-registration/3-registration-43",
+      "width": 6000,
+      "height": 4000
+    }
+  ],
+  "gallery/4-static": [
+    {
+      "name": "4-static-53",
+      "src": "gallery/4-static/4-static-53",
+      "width": 6000,
+      "height": 4000
+    },
+    {
+      "name": "4-static-57",
+      "src": "gallery/4-static/4-static-57",
+      "width": 6000,
+      "height": 4000
+    },
+    {
+      "name": "4-static-60",
+      "src": "gallery/4-static/4-static-60",
+      "width": 6000,
+      "height": 4000
+    },
+    {
+      "name": "4-static-61",
+      "src": "gallery/4-static/4-static-61",
+      "width": 6000,
+      "height": 4000
+    }
+  ],
+  "gallery/5-race": [
+    {
+      "name": "5-race-26",
+      "src": "gallery/5-race/5-race-26",
+      "width": 4284,
+      "height": 5712
+    },
+    {
+      "name": "5-race-29",
+      "src": "gallery/5-race/5-race-29",
+      "width": 4284,
+      "height": 5712
+    },
+    {
+      "name": "5-race-290",
+      "src": "gallery/5-race/5-race-290",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "name": "5-race-46",
+      "src": "gallery/5-race/5-race-46",
+      "width": 1152,
+      "height": 2048
+    },
+    {
+      "name": "5-race-69",
+      "src": "gallery/5-race/5-race-69",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "name": "5-race-72",
+      "src": "gallery/5-race/5-race-72",
+      "width": 1536,
+      "height": 2048
+    },
+    {
+      "name": "5-race-73",
+      "src": "gallery/5-race/5-race-73",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "name": "5-race-77",
+      "src": "gallery/5-race/5-race-77",
+      "width": 1536,
+      "height": 2048
+    },
+    {
+      "name": "5-race-83",
+      "src": "gallery/5-race/5-race-83",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "name": "5-race-87",
+      "src": "gallery/5-race/5-race-87",
+      "width": 3840,
+      "height": 2160
+    }
+  ],
+  "gallery/6-home": [
+    {
+      "name": "6-home-122",
+      "src": "gallery/6-home/6-home-122",
+      "width": 4284,
+      "height": 5712
+    },
+    {
+      "name": "6-home-149",
+      "src": "gallery/6-home/6-home-149",
+      "width": 5712,
+      "height": 4284
+    },
+    {
+      "name": "6-home-150",
+      "src": "gallery/6-home/6-home-150",
+      "width": 4284,
+      "height": 5712
+    }
+  ],
+  "hero": [
+    {
+      "name": "orna-zolder-pitlane",
+      "src": "hero/orna-zolder-pitlane",
+      "width": 3840,
+      "height": 2160
+    }
+  ],
+  "projects": [
+    {
+      "name": "body-9-parts",
+      "src": "projects/body-9-parts",
+      "width": 1064,
+      "height": 694
+    },
+    {
+      "name": "body-render",
+      "src": "projects/body-render",
+      "width": 900,
+      "height": 900
+    },
+    {
+      "name": "body-shapes",
+      "src": "projects/body-shapes",
+      "width": 417,
+      "height": 589
+    },
+    {
+      "name": "body-zolder",
+      "src": "projects/body-zolder",
+      "width": 2928,
+      "height": 2928
+    },
+    {
+      "name": "chassis-cad",
+      "src": "projects/chassis-cad",
+      "width": 885,
+      "height": 597
+    },
+    {
+      "name": "electrical-car",
+      "src": "projects/electrical-car",
+      "width": 900,
+      "height": 900
+    },
+    {
+      "name": "electrical-schematic",
+      "src": "projects/electrical-schematic",
+      "width": 3300,
+      "height": 2307
+    },
+    {
+      "name": "rear-suspension-cad",
+      "src": "projects/rear-suspension-cad",
+      "width": 688,
+      "height": 593
+    },
+    {
+      "name": "shipping-truck",
+      "src": "projects/shipping-truck",
+      "width": 1050,
+      "height": 1400
+    },
+    {
+      "name": "software-code",
+      "src": "projects/software-code",
+      "width": 900,
+      "height": 900
+    },
+    {
+      "name": "zolder-segments",
+      "src": "projects/zolder-segments",
+      "width": 3780,
+      "height": 2127
+    }
+  ],
+  "story": [
+    {
+      "name": "dynamic-pitlane",
+      "src": "story/dynamic-pitlane",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "name": "packing-crate",
+      "src": "story/packing-crate",
+      "width": 5712,
+      "height": 4284
+    },
+    {
+      "name": "race-night-repair",
+      "src": "story/race-night-repair",
+      "width": 4284,
+      "height": 5712
+    },
+    {
+      "name": "race-pitlane",
+      "src": "story/race-pitlane",
+      "width": 1536,
+      "height": 2048
+    },
+    {
+      "name": "race-rain",
+      "src": "story/race-rain",
+      "width": 1152,
+      "height": 2048
+    },
+    {
+      "name": "race-telemetry",
+      "src": "story/race-telemetry",
+      "width": 4284,
+      "height": 5712
+    },
+    {
+      "name": "registration-camp",
+      "src": "story/registration-camp",
+      "width": 6000,
+      "height": 4000
+    },
+    {
+      "name": "registration-night",
+      "src": "story/registration-night",
+      "width": 6000,
+      "height": 4000
+    },
+    {
+      "name": "static-car",
+      "src": "story/static-car",
+      "width": 6000,
+      "height": 4000
+    },
+    {
+      "name": "static-open",
+      "src": "story/static-open",
+      "width": 6000,
+      "height": 4000
+    }
+  ]
+}

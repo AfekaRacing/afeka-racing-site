@@ -1,0 +1,42 @@
+# פריסה ל-GitHub Pages (חלופה ל-Vercel).
+# מופעלת ידנית מלשונית Actions, כדי לא להתנגש עם Vercel אם משתמשים בו.
+# כדי שתרוץ בכל push: מוסיפים "push: branches: [main]" תחת on.
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # האתר יושב בכתובת /<שם המאגר>/
+      - run: npm run build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
+      # GitHub Pages לא מכיר ניתוב של אפליקציה, אז עמוד 404 מחזיר ל-index
+      - run: cp dist/index.html dist/404.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - id: deployment
+        uses: actions/deploy-pages@v4

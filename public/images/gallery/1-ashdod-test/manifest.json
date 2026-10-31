@@ -1,0 +1,26 @@
+[
+  {
+    "name": "1-ashdod-test-01",
+    "src": "gallery/1-ashdod-test/1-ashdod-test-01",
+    "width": 6000,
+    "height": 4000
+  },
+  {
+    "name": "1-ashdod-test-03",
+    "src": "gallery/1-ashdod-test/1-ashdod-test-03",
+    "width": 6000,
+    "height": 4000
+  },
+  {
+    "name": "1-ashdod-test-21",
+    "src": "gallery/1-ashdod-test/1-ashdod-test-21",
+    "width": 6000,
+    "height": 4000
+  },
+  {
+    "name": "1-ashdod-test-22",
+    "src": "gallery/1-ashdod-test/1-ashdod-test-22",
+    "width": 6000,
+    "height": 4000
+  }
+]

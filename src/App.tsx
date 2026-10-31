@@ -3,12 +3,14 @@ import { lazy } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import Home from './pages/Home'
-import { Gallery, Join, NotFound } from './pages/stubs'
+import { NotFound } from './pages/stubs'
 
 const About = lazy(() => import('./pages/About'))
 const Projects = lazy(() => import('./pages/Projects'))
 const Belgium = lazy(() => import('./pages/Belgium'))
 const Orna = lazy(() => import('./pages/Orna'))
+const Join = lazy(() => import('./pages/Join'))
+const Gallery = lazy(() => import('./pages/Gallery'))
 
 export default function App() {
   return (
