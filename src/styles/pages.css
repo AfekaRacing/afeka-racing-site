@@ -491,3 +491,9 @@
 .roadmap__step--dream {
   background: linear-gradient(135deg, #fff6d6, #e9f8f0);
 }
+
+.intro__title {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}

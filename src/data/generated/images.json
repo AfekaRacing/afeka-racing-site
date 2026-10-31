@@ -75,6 +75,12 @@
       "src": "gallery/3-registration/3-registration-43",
       "width": 6000,
       "height": 4000
+    },
+    {
+      "name": "workshop-weld-grass",
+      "src": "gallery/3-registration/workshop-weld-grass",
+      "width": 4000,
+      "height": 6000
     }
   ],
   "gallery/4-static": [
@@ -101,6 +107,12 @@
       "src": "gallery/4-static/4-static-61",
       "width": 6000,
       "height": 4000
+    },
+    {
+      "name": "scrutineering-accomplished",
+      "src": "gallery/4-static/scrutineering-accomplished",
+      "width": 4284,
+      "height": 5712
     }
   ],
   "gallery/5-race": [
@@ -263,6 +275,18 @@
   ],
   "story": [
     {
+      "name": "arrival-evening",
+      "src": "story/arrival-evening",
+      "width": 4284,
+      "height": 5712
+    },
+    {
+      "name": "arrival-unload",
+      "src": "story/arrival-unload",
+      "width": 4284,
+      "height": 5712
+    },
+    {
       "name": "dynamic-pitlane",
       "src": "story/dynamic-pitlane",
       "width": 3840,
@@ -277,6 +301,12 @@
     {
       "name": "race-night-repair",
       "src": "story/race-night-repair",
+      "width": 4284,
+      "height": 5712
+    },
+    {
+      "name": "race-night-telemetry",
+      "src": "story/race-night-telemetry",
       "width": 4284,
       "height": 5712
     },
@@ -311,14 +341,50 @@
       "height": 4000
     },
     {
+      "name": "static-accomplished",
+      "src": "story/static-accomplished",
+      "width": 4284,
+      "height": 5712
+    },
+    {
       "name": "static-car",
       "src": "story/static-car",
       "width": 6000,
       "height": 4000
     },
     {
+      "name": "static-cockpit",
+      "src": "story/static-cockpit",
+      "width": 4284,
+      "height": 5712
+    },
+    {
+      "name": "static-documents",
+      "src": "story/static-documents",
+      "width": 4284,
+      "height": 5712
+    },
+    {
       "name": "static-open",
       "src": "story/static-open",
+      "width": 6000,
+      "height": 4000
+    },
+    {
+      "name": "workshop-solder",
+      "src": "story/workshop-solder",
+      "width": 6000,
+      "height": 4000
+    },
+    {
+      "name": "workshop-tent",
+      "src": "story/workshop-tent",
+      "width": 4284,
+      "height": 5712
+    },
+    {
+      "name": "workshop-weld-car",
+      "src": "story/workshop-weld-car",
       "width": 6000,
       "height": 4000
     }

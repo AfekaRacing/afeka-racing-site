@@ -65,7 +65,7 @@ export default function Home() {
         <div className="container">
           <Reveal>
             <span className="eyebrow">{intro.eyebrow}</span>
-            <h2 className="section-title">{intro.title}</h2>
+            <h2 className="section-title intro__title">{intro.title}</h2>
             {intro.paragraphs.map((p) => (
               <p key={p} className="lead intro__p">
                 {p}

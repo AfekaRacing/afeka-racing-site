@@ -22,5 +22,11 @@
     "src": "gallery/4-static/4-static-61",
     "width": 6000,
     "height": 4000
+  },
+  {
+    "name": "scrutineering-accomplished",
+    "src": "gallery/4-static/scrutineering-accomplished",
+    "width": 4284,
+    "height": 5712
   }
 ]
