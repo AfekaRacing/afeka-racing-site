@@ -37,14 +37,6 @@ export function RaceDebrief() {
             </Reveal>
           ))}
         </div>
-        <Reveal className="debrief__lessons">
-          <h3>{raceDebrief.lessonsTitle}</h3>
-          <ol>
-            {raceDebrief.lessons.map((l) => (
-              <li key={l}>{l}</li>
-            ))}
-          </ol>
-        </Reveal>
       </div>
     </section>
   )

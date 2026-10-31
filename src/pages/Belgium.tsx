@@ -13,6 +13,7 @@ import { raceStats } from '../data/race'
 function ChapterBlock({ c, index }: { c: Chapter; index: number }) {
   return (
     <section className={`chapter ${c.tone === 'hard' ? 'chapter--hard' : ''}`} id={c.id} aria-labelledby={`${c.id}-title`}>
+      <div className="chapter__grid">
       <div className="chapter__media">
         {c.images.length === 0 ? (
           <PhotoPlaceholder className="chapter__img" label={`תמונה: ${c.title}`} />
@@ -42,6 +43,14 @@ function ChapterBlock({ c, index }: { c: Chapter; index: number }) {
           )}
         </Reveal>
       </div>
+      </div>
+      {c.stats && (
+        <div className="chapter__stats" aria-label="המספרים של המרוץ">
+          <span className="eyebrow">24 שעות במספרים</span>
+          <StatGrid stats={raceStats} />
+          <Results />
+        </div>
+      )}
     </section>
   )
 }
@@ -50,7 +59,7 @@ export default function Belgium() {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] })
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30 })
-  const raceIndex = chapters.findIndex((c) => c.id === 'race')
+  const hardIndex = chapters.findIndex((c) => c.id === 'hard')
 
   return (
     <>
@@ -74,29 +83,20 @@ export default function Belgium() {
       <div className="story" ref={ref}>
         <motion.div className="story__progress" style={{ scaleY: progress }} aria-hidden />
         <div className="container">
-          {chapters.slice(0, raceIndex + 1).map((c, i) => (
+          {chapters.slice(0, hardIndex + 1).map((c, i) => (
             <ChapterBlock key={c.id} c={c} index={i} />
           ))}
         </div>
 
-        <section className="section section--dark race-numbers" aria-label="המספרים של המרוץ">
-          <div className="container">
-            <Reveal>
-              <span className="eyebrow">24 שעות במספרים</span>
-            </Reveal>
-            <StatGrid stats={raceStats} />
-            <Results />
-          </div>
-        </section>
-
-        <ClassResults />
         <RaceDebrief />
 
         <div className="container">
-          {chapters.slice(raceIndex + 1).map((c, i) => (
-            <ChapterBlock key={c.id} c={c} index={raceIndex + 1 + i} />
+          {chapters.slice(hardIndex + 1).map((c, i) => (
+            <ChapterBlock key={c.id} c={c} index={hardIndex + 1 + i} />
           ))}
         </div>
+
+        <ClassResults />
       </div>
 
       <section className="section section--dark next-band">

@@ -323,6 +323,12 @@
       "height": 2048
     },
     {
+      "name": "race-scratches",
+      "src": "story/race-scratches",
+      "width": 4284,
+      "height": 5712
+    },
+    {
       "name": "race-telemetry",
       "src": "story/race-telemetry",
       "width": 4284,
