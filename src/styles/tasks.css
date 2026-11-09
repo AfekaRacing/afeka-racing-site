@@ -15,7 +15,7 @@
   --display: 'Karantina', 'Arial Narrow', 'Arial', sans-serif;
   --body: 'IBM Plex Sans Hebrew', 'Arial', sans-serif;
 
-  padding-top: var(--header-h);
+  --header-h: 0px;
   background: var(--bg);
   color: var(--ink);
   font-family: var(--body);

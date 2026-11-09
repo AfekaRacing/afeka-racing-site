@@ -39,6 +39,12 @@ export default function Tasks() {
     }
   }, [])
 
+  // קישור ישיר למשימה (#elec-1): העמוד נבנה אחרי הטעינה, אז קופצים אליה בעצמנו
+  useEffect(() => {
+    const { hash } = window.location
+    if (hash) document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView({ behavior: 'instant' })
+  }, [])
+
   return (
     <div className="tasks-page">
       <div className="tasks-wrap">

@@ -1,36 +1,15 @@
-import { MotionConfig } from 'motion/react'
-import { lazy } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Layout } from './components/Layout'
-import Home from './pages/Home'
-import { NotFound } from './pages/stubs'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import Tasks from './pages/Tasks'
 
-const About = lazy(() => import('./pages/About'))
-const Projects = lazy(() => import('./pages/Projects'))
-const Belgium = lazy(() => import('./pages/Belgium'))
-const Orna = lazy(() => import('./pages/Orna'))
-const Join = lazy(() => import('./pages/Join'))
-const Gallery = lazy(() => import('./pages/Gallery'))
-const Tasks = lazy(() => import('./pages/Tasks'))
-
+// כרגע גלוי רק עמוד המשימות, וכל כתובת אחרת מובילה אליו. שאר העמודים נשארו בקוד, לא מחוברים.
+// להחזרת האתר המלא: git revert ל-commit "Show only the tasks page", ודחיפה.
 export default function App() {
   return (
-    <MotionConfig reducedMotion="user">
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="orna" element={<Orna />} />
-            <Route path="projects" element={<Projects />} />
-            <Route path="belgium" element={<Belgium />} />
-            <Route path="gallery" element={<Gallery />} />
-            <Route path="join" element={<Join />} />
-            <Route path="tasks" element={<Tasks />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </MotionConfig>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <Routes>
+        <Route path="tasks" element={<Tasks />} />
+        <Route path="*" element={<Navigate to="/tasks" replace />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
