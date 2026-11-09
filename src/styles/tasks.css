@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@700&family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&display=swap');
+
+/* עמוד המשימות למצטרפים: עיצוב משלו, עם מצב כהה לפי הגדרת המכשיר. הכול תחום בתוך tasks-page */
+.tasks-page {
+  --bg: #f3f6f4;
+  --surface: #ffffff;
+  --ink: #121915;
+  --muted: #55635b;
+  --line: #d7e0da;
+  --accent: #19be73;
+  --accent-ink: #0b7445;
+  --accent-soft: #e3f6ec;
+  --cta-ink: #ffffff;
+  --hi: #befa23;
+  --display: 'Karantina', 'Arial Narrow', 'Arial', sans-serif;
+  --body: 'IBM Plex Sans Hebrew', 'Arial', sans-serif;
+
+  padding-top: var(--header-h);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+  direction: rtl;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .tasks-page {
+    --bg: #0e1310;
+    --surface: #161d19;
+    --ink: #e7eee9;
+    --muted: #9aa9a1;
+    --line: #27322c;
+    --accent-ink: #5be3a2;
+    --accent-soft: #15301f;
+    --cta-ink: #06120b;
+    color-scheme: dark;
+  }
+  :root:not([data-theme='light']) .tasks-logo--light {
+    display: none;
+  }
+  :root:not([data-theme='light']) .tasks-logo--dark {
+    display: block;
+  }
+}
+
+:root[data-theme='dark'] .tasks-page {
+  --bg: #0e1310;
+  --surface: #161d19;
+  --ink: #e7eee9;
+  --muted: #9aa9a1;
+  --line: #27322c;
+  --accent-ink: #5be3a2;
+  --accent-soft: #15301f;
+  --cta-ink: #06120b;
+  color-scheme: dark;
+}
+:root[data-theme='dark'] .tasks-logo--light {
+  display: none;
+}
+:root[data-theme='dark'] .tasks-logo--dark {
+  display: block;
+}
+
+.tasks-page h1,
+.tasks-page h2,
+.tasks-page h3,
+.tasks-page h4 {
+  font-weight: 700;
+  letter-spacing: normal;
+}
+
+.tasks-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* פתיחה */
+.tasks-hero {
+  padding-block: 36px 28px;
+  display: grid;
+  gap: 18px;
+}
+.tasks-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.tasks-logo {
+  height: 34px;
+  width: auto;
+}
+.tasks-logo--dark {
+  display: none;
+}
+.tasks-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent-ink);
+}
+.tasks-page h1 {
+  font-family: var(--display);
+  font-size: clamp(56px, 11vw, 112px);
+  line-height: 0.9;
+  margin: 0;
+  text-wrap: balance;
+}
+.tasks-page h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+.tasks-lead {
+  margin: 0;
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 46ch;
+}
+.tasks-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--accent);
+  color: var(--cta-ink);
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 14px 26px;
+  border-radius: 999px;
+  min-height: 52px;
+}
+.tasks-cta:hover {
+  filter: brightness(1.06);
+}
+.tasks-cta:focus-visible,
+.tasks-cube:focus-visible,
+.tasks-page summary:focus-visible {
+  outline: 3px solid var(--hi);
+  outline-offset: 3px;
+}
+.tasks-cta svg {
+  width: 20px;
+  height: 20px;
+  transform: scaleX(-1);
+}
+
+/* קוביות התחומים */
+.tasks-cubes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding-block: 8px 40px;
+}
+@media (max-width: 860px) {
+  .tasks-cubes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 520px) {
+  .tasks-cubes {
+    grid-template-columns: 1fr;
+  }
+}
+.tasks-cube {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 18px 16px;
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  text-decoration: none;
+  min-width: 0;
+  transition:
+    border-color 0.15s,
+    transform 0.15s;
+}
+.tasks-cube:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tasks-cube {
+    transition: none;
+  }
+  .tasks-cube:hover {
+    transform: none;
+  }
+}
+.tasks-cube__count {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-ink);
+}
+.tasks-cube__name {
+  font-family: var(--display);
+  font-size: 40px;
+  line-height: 1;
+}
+.tasks-cube__sub {
+  font-size: 13px;
+  color: var(--muted);
+}
+.tasks-cube__list {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+  display: grid;
+  gap: 4px;
+  align-content: start;
+  font-size: 14px;
+  color: var(--muted);
+  flex: 1;
+}
+.tasks-cube__list li {
+  padding-inline-start: 14px;
+  position: relative;
+}
+.tasks-cube__list li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+}
+.tasks-cube__go {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-ink);
+}
+
+/* תחומים ומשימות */
+.tasks-team {
+  padding-block: 28px;
+  border-top: 2px solid var(--ink);
+  scroll-margin-top: calc(var(--header-h) + 12px);
+}
+.tasks-team__head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-bottom: 16px;
+}
+.tasks-team__head h2 {
+  font-family: var(--display);
+  font-size: clamp(40px, 7vw, 64px);
+  line-height: 1;
+  margin: 0;
+}
+.tasks-team__sub {
+  font-size: 15px;
+  color: var(--muted);
+}
+.tasks-team__count {
+  margin-inline-start: auto;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-ink);
+}
+.tasks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  .tasks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.tasks-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 18px 18px 6px;
+  min-width: 0;
+  scroll-margin-top: calc(var(--header-h) + 12px);
+}
+.tasks-card h3 {
+  margin: 0 0 6px;
+  font-size: 19px;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+.tasks-card__hook {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+.tasks-page details {
+  border-top: 1px solid var(--line);
+}
+.tasks-page summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 10px 0;
+  font-weight: 600;
+  color: var(--accent-ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tasks-page summary::-webkit-details-marker {
+  display: none;
+}
+.tasks-page summary::before {
+  content: '+';
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+.tasks-page details[open] summary::before {
+  content: '–';
+}
+.tasks-sum-close {
+  display: none;
+}
+.tasks-page details[open] .tasks-sum-open {
+  display: none;
+}
+.tasks-page details[open] .tasks-sum-close {
+  display: inline;
+}
+.tasks-parts {
+  display: grid;
+  gap: 14px;
+  padding: 4px 0 16px;
+}
+.tasks-part h4 {
+  margin: 0 0 2px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.tasks-part p {
+  margin: 0;
+  max-width: 65ch;
+}
+.tasks-part--out {
+  background: var(--accent-soft);
+  border-radius: 4px;
+  padding: 10px 12px;
+}
+
+/* הרשמה */
+.tasks-register {
+  margin-block: 40px 56px;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 8px;
+  padding: 28px 24px;
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+}
+.tasks-register h2 {
+  font-family: var(--display);
+  font-size: clamp(44px, 8vw, 72px);
+  line-height: 0.95;
+  margin: 0;
+}
+.tasks-register p {
+  margin: 0;
+  opacity: 0.85;
+  max-width: 50ch;
+}
+
+/* כפתור צף בטלפון. נדבק לתחתית המסך רק בתוך העמוד, כדי לא לכסות את הפוטר */
+.tasks-float {
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
+  display: none;
+  padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px))
+    max(16px, env(safe-area-inset-left, 0px));
+  background: linear-gradient(to top, var(--bg) 70%, transparent);
+}
+.tasks-float .tasks-cta {
+  width: 100%;
+}
+@media (max-width: 760px) {
+  .tasks-float {
+    display: block;
+  }
+}

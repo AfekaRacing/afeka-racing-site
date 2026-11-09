@@ -86,7 +86,7 @@ export default function Home() {
           <Link to={intro.link.to} className="text-link">
             {intro.link.label} <ArrowIcon />
           </Link>
-          <div className="card-grid">
+          <div className="card-grid card-grid--four">
             {explore.map((item, i) => (
               <Reveal key={item.to} delay={i * 0.1}>
                 <Link to={item.to} className="explore-card">

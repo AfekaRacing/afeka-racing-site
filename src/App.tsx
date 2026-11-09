@@ -11,6 +11,7 @@ const Belgium = lazy(() => import('./pages/Belgium'))
 const Orna = lazy(() => import('./pages/Orna'))
 const Join = lazy(() => import('./pages/Join'))
 const Gallery = lazy(() => import('./pages/Gallery'))
+const Tasks = lazy(() => import('./pages/Tasks'))
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
             <Route path="belgium" element={<Belgium />} />
             <Route path="gallery" element={<Gallery />} />
             <Route path="join" element={<Join />} />
+            <Route path="tasks" element={<Tasks />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

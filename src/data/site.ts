@@ -37,6 +37,7 @@ export const nav = [
   { to: '/projects', label: 'הפרויקטים' },
   { to: '/belgium', label: 'בלגיה 2026' },
   { to: '/gallery', label: 'גלריה' },
+  { to: '/tasks', label: 'משימות למצטרפים' },
 ]
 
 export const joinCta = { to: '/join', label: 'הצטרפו אלינו' }
