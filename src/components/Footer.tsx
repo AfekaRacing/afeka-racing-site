@@ -50,15 +50,17 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-            {site.logos.afeka && (
-              <img className="footer__afeka" src={site.logos.afeka} alt={site.college} loading="lazy" />
-            )}
           </div>
         </div>
 
         <div className="footer__sponsors">
           <h2>השותפים שלנו</h2>
           <ul className="sponsor-wall">
+            {site.logos.afeka && (
+              <li className="sponsor-wall__item sponsor-wall__item--lead">
+                <img src={site.logos.afeka} alt={site.college} loading="lazy" />
+              </li>
+            )}
             {sponsors.map((s) => (
               <li key={s.name} className="sponsor-wall__item">
                 {s.url ? (
