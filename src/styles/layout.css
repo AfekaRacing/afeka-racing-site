@@ -136,7 +136,7 @@
   height: 24px;
 }
 
-@media (min-width: 1120px) {
+@media (min-width: 1240px) {
   .nav {
     display: block;
   }

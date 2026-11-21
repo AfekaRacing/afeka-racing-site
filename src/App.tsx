@@ -12,6 +12,7 @@ const Orna = lazy(() => import('./pages/Orna'))
 const Join = lazy(() => import('./pages/Join'))
 const Gallery = lazy(() => import('./pages/Gallery'))
 const Tasks = lazy(() => import('./pages/Tasks'))
+const Docs = lazy(() => import('./pages/Docs'))
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="gallery" element={<Gallery />} />
             <Route path="join" element={<Join />} />
             <Route path="tasks" element={<Tasks />} />
+            <Route path="docs" element={<Docs />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
